@@ -1,0 +1,38 @@
+Conta: 1
+Nome: lucas
+CPF: 1
+Agencia: 0001
+Saldo: 32.0
+Historico:
+- Depósito Inicial: 32.0
+---
+Conta: 1
+Nome: lucas
+CPF: 1
+Agencia: 0001
+Saldo: 42.0
+Historico:
+- Depósito Inicial: 32.0
+- Depósito: 10.0
+---
+Conta: 1
+Nome: lucas
+CPF: 1
+Agencia: 0001
+Saldo: 32.0
+Historico:
+- Depósito Inicial: 32.0
+- Depósito: 10.0
+- Saque: 10.0
+---
+Conta: 1
+Nome: lucas
+CPF: 1
+Agencia: 0001
+Saldo: 0.0
+Historico:
+- Depósito Inicial: 32.0
+- Depósito: 10.0
+- Saque: 10.0
+- Saque: 32.0
+---

@@ -1,0 +1,34 @@
+Conta: 1
+Nome: asdasda
+CPF: 4356666
+Agencia: 0001
+Saldo: 13.0
+Historico:
+- Depósito Inicial: 13.0
+---
+Conta: 1
+Nome: asdasda
+CPF: 4356666
+Agencia: 0001
+Saldo: 25.0
+Historico:
+- Depósito Inicial: 13.0
+- Depósito: 12.0
+---
+Conta: 1
+Nome: a
+CPF: 1
+Agencia: 0001
+Saldo: 1.0
+Historico:
+- Depósito Inicial: 1.0
+---
+Conta: 1
+Nome: a
+CPF: 1
+Agencia: 0001
+Saldo: 91.0
+Historico:
+- Depósito Inicial: 1.0
+- Depósito: 90.0
+---

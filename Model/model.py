@@ -91,3 +91,19 @@ class PessoaFisica(Cliente):
         self.cpf = cpf
         self.nome = nome
         self.data_nascimento = data_nascimento
+
+class Poupanca(Cliente):
+    def __init__(self, cliente: PessoaFisica, ):
+        self.cliente = cliente
+        self.investimento = []
+        self._saldoinvestido =[]
+
+    def investimento(self, valor: float):
+        if valor <= 0:
+            return False
+
+        if valor > self._saldoinvestido:
+            return False
+
+        self._saldo += valor
+        return True

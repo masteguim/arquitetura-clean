@@ -2,7 +2,7 @@ from Service.criar_conta_usecase import CriarContaUseCase
 from Service.depositar_usecase import DepositarUseCase
 from Service.sacar_usecase import SacarUseCase
 from Service.historico_usecase import HistoricoUseCase
-
+from Service.poupanca_usecase import PoupancaUseCase
 
 class ContaController:
     def __init__(self, view, repository):
@@ -13,9 +13,11 @@ class ContaController:
         self.depositar_usecase = DepositarUseCase(repository)
         self.sacar_usecase = SacarUseCase(repository)
         self.historico_usecase = HistoricoUseCase()
+        self.poupanca_usecase = PoupancaUseCase(repository)
 
         self.proximo_numero = 1
         self.conta_atual = None
+        self.valor = None
 
     def criar_conta(self):
         dados = self.view.obter_dados()
@@ -107,3 +109,14 @@ class ContaController:
 
         historico = self.historico_usecase.executar(self.conta_atual)
         self.view.mostrar_historico(historico)
+
+    def investimento(self):
+        if valor <= 0:
+            self.view.mostrar_erro("Valor invalido")
+            return
+
+        if valor > self._saldoinvestido:
+            return False
+
+        self._saldo += valor
+        return True

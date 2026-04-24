@@ -13,6 +13,7 @@ class ArquivoContaRepository(IContaRepository):
             arquivo.write(f"Agencia: {conta.agencia}\n")
             arquivo.write(f"Saldo: {conta.saldo}\n")
             arquivo.write("Historico:\n")
+            arquivo.write(f"Investimento: {conta.investimento}\n")
 
             for transacao in conta.historico.listar():
                 arquivo.write(f"- {transacao['tipo']}: {transacao['valor']}\n")

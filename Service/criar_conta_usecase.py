@@ -1,5 +1,5 @@
 from datetime import date
-from Model.model import PessoaFisica, ContaCorrente
+from Model.model import PessoaFisica, ContaPoupanca, ContaCorrente
 
 
 class CriarContaUseCase:
@@ -14,12 +14,11 @@ class CriarContaUseCase:
             endereco="Não informado"
         )
 
-        conta = ContaCorrente(
+        conta = ContaPoupanca(
             cliente=cliente,
             numero=numero,
             agencia="0001",
-            limite=500.0,
-            limite_saques=3
+            rendimento=0.005
         )
 
         if saldo_inicial > 0:

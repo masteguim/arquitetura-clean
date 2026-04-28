@@ -2,7 +2,7 @@ from Service.criar_conta_usecase import CriarContaUseCase
 from Service.depositar_usecase import DepositarUseCase
 from Service.sacar_usecase import SacarUseCase
 from Service.historico_usecase import HistoricoUseCase
-
+from Service.aplicar_rendimento_usecase import AplicarRendimentoUseCase
 
 class ContaController:
     def __init__(self, view, repository):
@@ -49,6 +49,20 @@ class ContaController:
         self.proximo_numero += 1
 
         self.view.mostrar_conta(conta)
+
+    def aplicar_rendimento(self):
+        if self.conta_atual is None:
+            self.view.mostrar_erro("Crie uma conta primeiro.")
+            return
+
+        sucesso = self.conta_atual.aplicar_rendimento()
+
+        if sucesso:
+            self.repository.salvar(self.conta_atual)
+            self.view.mostrar_mensagem("Rendimento aplicado!")
+            self.view.mostrar_conta(self.conta_atual)
+        else:
+            self.view.mostrar_erro("Não foi possível aplicar rendimento.")
 
     def depositar(self):
         if self.conta_atual is None:
@@ -107,3 +121,17 @@ class ContaController:
 
         historico = self.historico_usecase.executar(self.conta_atual)
         self.view.mostrar_historico(historico)
+
+def aplicar_rendimento(self):
+    if self.conta_atual is None:
+        self.view.mostrar_erro("Crie uma conta primeiro.")
+        return
+
+    sucesso = self.conta_atual.aplicar_rendimento()
+
+    if sucesso:
+        self.repository.salvar(self.conta_atual)
+        self.view.mostrar_mensagem("Rendimento aplicado!")
+        self.view.mostrar_conta(self.conta_atual)
+    else:
+        self.view.mostrar_erro("Não foi possível aplicar rendimento.")

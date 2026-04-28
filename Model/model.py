@@ -91,3 +91,18 @@ class PessoaFisica(Cliente):
         self.cpf = cpf
         self.nome = nome
         self.data_nascimento = data_nascimento
+
+class ContaPoupanca(Conta):
+    def __init__(self, cliente, numero: int, agencia: str, rendimento: float = 0.005):
+        super().__init__(cliente, numero, agencia)
+        self._rendimento = rendimento
+
+    def aplicar_rendimento(self):
+        valor = self.saldo * self._rendimento
+
+        if valor <= 0:
+            return False
+
+        self.depositar(valor)
+        self.historico.adicionar_transacao("Rendimento", valor)
+        return True
